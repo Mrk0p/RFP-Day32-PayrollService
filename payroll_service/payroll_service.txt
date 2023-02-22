@@ -190,3 +190,29 @@ mysql> select sum(Salary) from employee_payroll where (Gender = 'F');
 |    11700000 |
 +-------------+
 1 row in set (0.00 sec)
+
+
+mysql> alter table employee_payroll add Address varchar(250) after startDate;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add PhoneNumber varchar(250) after Address;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add Department varchar(250) after PhoneNumber;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+---------+-------------+------------+
+| Id | name    | Gender | salary  | startDate  | Address | PhoneNumber | Department |
++----+---------+--------+---------+------------+---------+-------------+------------+
+|  1 | Bill    | M      | 1000000 | 2018-01-03 | NULL    | NULL        | NULL       |
+|  2 | Mark    | M      | 2000000 | 2019-11-13 | NULL    | NULL        | NULL       |
+|  3 | Charlie | M      | 3000000 | 2020-05-21 | NULL    | NULL        | NULL       |
+|  4 | Rani    | F      | 3200000 | 2021-08-16 | NULL    | NULL        | NULL       |
+|  5 | kriti   | F      | 4000000 | 2021-10-23 | NULL    | NULL        | NULL       |
+|  6 | Riya    | F      | 4500000 | 2022-03-08 | NULL    | NULL        | NULL       |
++----+---------+--------+---------+------------+---------+-------------+------------+
+6 rows in set (0.00 sec)
