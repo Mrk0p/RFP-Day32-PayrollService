@@ -216,3 +216,126 @@ mysql> select * from employee_payroll;
 |  6 | Riya    | F      | 4500000 | 2022-03-08 | NULL    | NULL        | NULL       |
 +----+---------+--------+---------+------------+---------+-------------+------------+
 6 rows in set (0.00 sec)
+
+
+mysql> update employee_payroll set Address = 'Mumbai',PhoneNumber = 965328
+7542,Department =
+    -> 'sales' where Id = 1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Address = 'Hyderabad',PhoneNumber = 965
+3287542,Department = ' marketing' where Id = 2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Address = 'pune',PhoneNumber = 7853287542,Department = 'assistant' where Id = 3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Address = 'banglore',PhoneNumber = 8653
+287542,Department = 'HR' where Id = 4;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Address = 'delhi',PhoneNumber = 7643287542,Department = 'HR' where Id = 5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Address = 'jaipur',PhoneNumber = 844328
+7542,Department = 'manager' where Id = 6;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Address = 'Hyderabad',PhoneNumber = 765
+3287542,Department = ' marketing' where Id = 2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+-----------+-------------+------------+
+| Id | name    | Gender | salary  | startDate  | Address   | PhoneNumber | Department |
++----+---------+--------+---------+------------+-----------+-------------+------------+
+|  1 | Bill    | M      | 1000000 | 2018-01-03 | Mumbai    | 9653287542  | sales      |
+|  2 | Mark    | M      | 2000000 | 2019-11-13 | Hyderabad | 7653287542  |  marketing |
+|  3 | Charlie | M      | 3000000 | 2020-05-21 | pune      | 7853287542  | assistant  |
+|  4 | Rani    | F      | 3200000 | 2021-08-16 | banglore  | 8653287542  | HR         |
+|  5 | kriti   | F      | 4000000 | 2021-10-23 | delhi     | 7643287542  | HR         |
+|  6 | Riya    | F      | 4500000 | 2022-03-08 | jaipur    | 8443287542  | manager    |
++----+---------+--------+---------+------------+-----------+-------------+------------+
+6 rows in set (0.00 sec)
+
+
+mysql> alter table employee_payroll add BasicPay int after Department;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add Deductions int after BasicPay;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add TaxablePay int after Deductions;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add IncomeTax int after TaxablePay;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add NetPay int after IncomeTax;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_payroll
+    -> select * from employee_payroll;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from employee_payroll' at line 2
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+| Id | name    | Gender | salary  | startDate  | Address   | PhoneNumber | Department | BasicPay | Deductions | TaxablePay | IncomeTax | NetPay |
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+|  1 | Bill    | M      | 1000000 | 2018-01-03 | Mumbai    | 9653287542  | sales      |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  2 | Mark    | M      | 2000000 | 2019-11-13 | Hyderabad | 7653287542  |  marketing |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  3 | Charlie | M      | 3000000 | 2020-05-21 | pune      | 7853287542  | assistant  |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  4 | Rani    | F      | 3200000 | 2021-08-16 | banglore  | 8653287542  | HR         |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  5 | kriti   | F      | 4000000 | 2021-10-23 | delhi     | 7643287542  | HR         |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  6 | Riya    | F      | 4500000 | 2022-03-08 | jaipur    | 8443287542  | manager    |     NULL |       NULL |       NULL |      NULL |   NULL |
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+6 rows in set (0.00 sec)
+
+
+mysql> update employee_payroll set BasicPay = 20000,Deductions = 2000, TaxablePay =1000 ,IncomeTax =200 ,NetPay = 18000 where Id = 1 ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set BasicPay = 30000,Deductions = 3000, TaxablePay = 3000 ,IncomeTax =300 ,NetPay = 21000 where Id = 2 ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set BasicPay = 48000,Deductions = 4800, TaxablePay = 4500 ,IncomeTax =500 ,NetPay = 26000 where Id = 3 ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set BasicPay = 62000,Deductions = 5100, TaxablePay = 6200 ,IncomeTax =750 ,NetPay = 29000 where Id = 4 ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set BasicPay = 70000,Deductions = 6200, TaxablePay = 7200 ,IncomeTax =850 ,NetPay = 30000 where Id = 5 ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set BasicPay = 75000,Deductions = 7500, TaxablePay = 8200 ,IncomeTax =950 ,NetPay = 32000 where Id = 6 ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+| Id | name    | Gender | salary  | startDate  | Address   | PhoneNumber | Department | BasicPay | Deductions | TaxablePay | IncomeTax | NetPay |
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+|  1 | Bill    | M      | 1000000 | 2018-01-03 | Mumbai    | 9653287542  | sales      |    20000 |       2000 |       1000 |       200 |  18000 |
+|  2 | Mark    | M      | 2000000 | 2019-11-13 | Hyderabad | 7653287542  |  marketing |    30000 |       3000 |       3000 |       300 |  21000 |
+|  3 | Charlie | M      | 3000000 | 2020-05-21 | pune      | 7853287542  | assistant  |    48000 |       4800 |       4500 |       500 |  26000 |
+|  4 | Rani    | F      | 3200000 | 2021-08-16 | banglore  | 8653287542  | HR         |    62000 |       5100 |       6200 |       750 |  29000 |
+|  5 | kriti   | F      | 4000000 | 2021-10-23 | delhi     | 7643287542  | HR         |    70000 |       6200 |       7200 |       850 |  30000 |
+|  6 | Riya    | F      | 4500000 | 2022-03-08 | jaipur    | 8443287542  | manager    |    75000 |       7500 |       8200 |       950 |  32000 |
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+6 rows in set (0.00 sec)
