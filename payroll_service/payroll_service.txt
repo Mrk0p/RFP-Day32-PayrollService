@@ -28,3 +28,17 @@ mysql> select database();
 | payroll_service |
 +-----------------+
 1 row in set (0.00 sec)
+
+mysql> create table employee_payroll (Id int unsigned not null auto_increment,name varchar(150) not null,salary Double not null, startDate date not null,primary key (Id) );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> describe employee_payroll;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| Id        | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name      | varchar(150) | NO   |     | NULL    |                |
+| salary    | double       | NO   |     | NULL    |                |
+| startDate | date         | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
