@@ -339,3 +339,25 @@ mysql> select * from employee_payroll;
 |  6 | Riya    | F      | 4500000 | 2022-03-08 | jaipur    | 8443287542  | manager    |    75000 |       7500 |       8200 |       950 |  32000 |
 +----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
 6 rows in set (0.00 sec)
+
+
+mysql> insert into employee_payroll (Id,name,Gender,salary,startDate,Address,PhoneNumber,Department,BasicPay,Deductions,TaxablePay,IncomeTax,NetPay) values (7,'Terissa','F',5200000.00,'2022-05-06','Mumbai',7598461325,'marketing',72000,6500,7500,800,29200);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> update employee_payroll set Name = 'Terissa' where Id = 5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+| Id | name    | Gender | salary  | startDate  | Address   | PhoneNumber | Department | BasicPay | Deductions | TaxablePay | IncomeTax | NetPay |
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+|  1 | Bill    | M      | 1000000 | 2018-01-03 | Mumbai    | 9653287542  | sales      |    20000 |       2000 |       1000 |       200 |  18000 |
+|  2 | Mark    | M      | 2000000 | 2019-11-13 | Hyderabad | 7653287542  |  marketing |    30000 |       3000 |       3000 |       300 |  21000 |
+|  3 | Charlie | M      | 3000000 | 2020-05-21 | pune      | 7853287542  | assistant  |    48000 |       4800 |       4500 |       500 |  26000 |
+|  4 | Rani    | F      | 3200000 | 2021-08-16 | banglore  | 8653287542  | HR         |    62000 |       5100 |       6200 |       750 |  29000 |
+|  5 | Terissa | F      | 4000000 | 2021-10-23 | delhi     | 7643287542  | HR         |    70000 |       6200 |       7200 |       850 |  30000 |
+|  6 | Riya    | F      | 4500000 | 2022-03-08 | jaipur    | 8443287542  | manager    |    75000 |       7500 |       8200 |       950 |  32000 |
+|  7 | Terissa | F      | 5200000 | 2022-05-06 | Mumbai    | 7598461325  | marketing  |    72000 |       6500 |       7500 |       800 |  29200 |
++----+---------+--------+---------+------------+-----------+-------------+------------+----------+------------+------------+-----------+--------+
+7 rows in set (0.00 sec)
