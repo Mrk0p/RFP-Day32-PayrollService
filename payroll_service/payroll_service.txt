@@ -106,3 +106,87 @@ mysql> select * from employee_payroll;
 |  4 | Rani    | F      | 3200000 | 2021-08-16 |
 +----+---------+--------+---------+------------+
 4 rows in set (0.00 sec)
+
+
+mysql> insert into employee_payroll (name,Gender,salary,startDate) values ('kriti','F',4000000.00,'2021-10-23');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into employee_payroll (name,Gender,salary,startDate) values ('Riya','F',4500000.00,'2022-03-08');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+
+| Id | name    | Gender | salary  | startDate  |
++----+---------+--------+---------+------------+
+|  1 | Bill    | M      | 1000000 | 2018-01-03 |
+|  2 | Mark    | M      | 2000000 | 2019-11-13 |
+|  3 | Charlie | M      | 3000000 | 2020-05-21 |
+|  4 | Rani    | F      | 3200000 | 2021-08-16 |
+|  5 | kriti   | F      | 4000000 | 2021-10-23 |
+|  6 | Riya    | F      | 4500000 | 2022-03-08 |
++----+---------+--------+---------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select sum(Salary) from employee_payroll;
++-------------+
+| sum(Salary) |
++-------------+
+|    17700000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(Salary) from employee_payroll;
++-------------+
+| avg(Salary) |
++-------------+
+|     2950000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(Id) from employee_payroll where (Gender = 'M');
++-----------+
+| count(Id) |
++-----------+
+|         3 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select count(Id) from employee_payroll where (Gender = 'F');
++-----------+
+| count(Id) |
++-----------+
+|         3 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) from employee_payroll;
++-------------+
+| min(salary) |
++-------------+
+|     1000000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employee_payroll;
++-------------+
+| max(salary) |
++-------------+
+|     4500000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(Salary) from employee_payroll where (Gender = 'M');
++-------------+
+| sum(Salary) |
++-------------+
+|     6000000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(Salary) from employee_payroll where (Gender = 'F');
++-------------+
+| sum(Salary) |
++-------------+
+|    11700000 |
++-------------+
+1 row in set (0.00 sec)
